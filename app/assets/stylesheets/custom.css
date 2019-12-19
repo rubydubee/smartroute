@@ -1,0 +1,202 @@
+/* Shared
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.button {
+  border-radius: 100px;
+}
+
+/* Sections
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.section {
+  padding: 2rem 0 1.75rem;
+  text-align: center;
+}
+.section-heading,
+.section-description {
+  margin-bottom: 1.2rem;
+}
+
+/* Hero
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.hero {
+  background-color: #e9e9e9;
+}
+.phones {
+  position: relative;
+}
+.phone {
+  position: relative;
+  max-width: 80%;
+  margin: 3rem auto -12rem;
+}
+.phone + .phone {
+  display: none;
+}
+
+/* Categories
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.categories {
+  background-color: #e9e9e9;
+  background-size: cover;
+  color: #222;
+}
+
+.logo-sr {
+  max-height: 65px;
+}
+
+.phones {
+  height: 300px;
+}
+
+.circled {
+  display: block;
+  float: left;
+  margin-right: 5px;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  line-height: 0px;
+  text-align: center;
+  font-size: 30px;
+  background-color: #489dff;
+  color: white;
+  padding: 10px !important;
+}
+
+.route_name {
+  text-transform: uppercase;
+  margin-bottom: 0px;
+}
+
+/* Bigger than 550 */
+@media (min-width: 550px) {
+  .section {
+    padding: 3rem 0 2.75rem;
+  }
+  .hero {
+    padding-bottom: 12rem;
+    text-align: left;
+    height: 165px;
+  }
+  .phone {
+    position: absolute;
+    top: -7rem;
+    right: 3rem;
+    max-height: 362px;
+    z-index: 3;
+  }
+  .phone + .phone {
+    top: -6rem;
+    display: block;
+    max-width: 73.8%;
+    right: 0;
+    z-index: 2;
+    max-height: 338px;
+  }
+  .hero-heading {
+    font-size: 2.4rem;
+  }
+  .navbar {
+    border-top-width: 0; height: 10rem; 
+    text-align: center;
+  }
+  .logo {
+    text-align: left;
+  }
+}
+
+/* Bigger than 750 */
+@media (min-width: 750px) {
+  .row {
+    margin-bottom: 30px;
+  }
+  .hero {
+    height: 190px;
+  }
+  .hero-heading {
+    font-size: 2.6rem;
+  }
+  .section {
+    padding: 3.5rem 0 4rem;
+  }
+  .hero {
+    padding: 16rem 0 14rem;
+  }
+  .section-description {
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .phone {
+    top: -14rem;
+    right: 5rem;
+    max-height: 510px;
+  }
+  .phone + .phone {
+    top: -12rem;
+    max-height: 472px;
+  }
+  .categories {
+    padding: 15rem 0 8rem;
+  }
+  .navbar {
+    border-top-width: 0; height: 6.5rem; }
+}
+
+/* Bigger than 1000 */
+@media (min-width: 1000px) {
+  .section {
+    padding: 5rem 0 4rem;
+  }
+  .hero {
+    padding: 22rem 0;
+  }
+  .hero-heading {
+    font-size: 3.0rem;
+  }
+  .phone {
+    top: -16rem;
+    max-height: 615px;
+  }
+  .phone + .phone {
+    top: -14rem;
+    max-height: 570px;
+  }
+  .header {
+    padding: 3rem 0 0rem !important;
+  }
+}
+
+.navbar-list {
+    list-style: none;
+    margin-bottom: 0; }
+.navbar-item {
+    position: relative;
+    float: left;
+    margin-bottom: 0; }
+.navbar-link {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .2rem;
+    margin-right: 35px;
+    text-decoration: none;
+    line-height: 6.5rem;
+    color: #222; }
+.navbar > .container {
+    width: 100%; }
+.navbar {
+    display: block;
+    width: 100%;
+    background: #fff;
+    z-index: 99;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee; }
+.navbar-link.active {
+    color: #489dff; }
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+  /* Navbar */
+  
+}

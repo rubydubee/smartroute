@@ -1,0 +1,28 @@
+<div class="section" style="background-color: #e9e9e9;">
+  <div class="container">
+    <h2 class="section-heading"><strong><%= @agency.name %></strong> <img src="/assets/refresh.png" id="refresh-button" style="height: 36px;" /> </h2>
+    <p class="section-description">Allow us to fetch your location and we will show you the closest station for you.</p>
+    <div class="row">
+      <div class="center">
+        <label for="from-station"><span id="location_status"></span></label>
+        <select class="u-half-width" id="from-station" data-placeholder="Choose a station...">
+          <option value=""></option>
+          <% @agency.route_stops.select("distinct name").order("name").each do |stop| %>
+            <option value="<%= stop.name %>"><%= stop.name %></option>
+          <% end %>
+        </select>
+      </div>
+    </div>
+
+    <div class="row" id="departures">
+      <div class="center">
+      
+      </div>
+    </div>
+  </div>
+</div>
+<%= javascript_tag do %>
+  window.agency_id = '<%= @agency.id %>';
+<% end %>
+<%= javascript_pack_tag "chosen" %>
+<%= javascript_pack_tag "smartroute" %>

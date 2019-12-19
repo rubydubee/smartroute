@@ -1,0 +1,58 @@
+<div class="section" style="background-color: #e9e9e9;">
+  <div class="container">
+    <h2 class="section-heading"><strong>Favorites</strong> <img src="/assets/refresh.png" id="refresh-button" style="height: 36px;" /> </h2>
+    
+    <div class="row" id="departures">
+      
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+function refresh_favorites() {
+  if (localStorage) {
+    var favorites = JSON.parse(localStorage.getItem('favorites'));
+    if (favorites != null) {
+      var id=1;
+      for (var stop in favorites) {
+        if (favorites.hasOwnProperty(stop)) {
+          prev_name = 'departures-'+id;
+          $.get('/favorites/route_departures.js',{stop_name: stop, routes: favorites[stop].join("|"), view_id: prev_name});
+          id += 1;
+        }
+      }
+    }
+  }
+}
+function no_favorites() {
+  $("#departures").html('<h5>Sorry, we couldn\'t find any favorites. Start adding to favorites here: </h5><a class="button button-primary" href="/agencies">Departures</a>');
+}
+if (localStorage) {
+  var favorites = JSON.parse(localStorage.getItem('favorites'));
+  if (favorites != null && !$.isEmptyObject(favorites)) {
+    var id=1;
+    var prev_name = "departures";
+    for (var stop in favorites) {
+      if (favorites.hasOwnProperty(stop)) {
+        console.log(stop + " - " + JSON.stringify(favorites[stop]));
+        $('<h4 style="background-color:white;">'+stop+'</h4><div class="row" id="departures-'+id+'"></div>').insertAfter("#"+prev_name);
+        prev_name = 'departures-'+id;
+        $.get('/favorites/route_departures.js',{stop_name: stop, routes: favorites[stop].join("|"), view_id: prev_name});
+        id += 1;
+      }
+    }
+  } else {
+    no_favorites();
+  }
+} else {
+  no_favorites();
+}
+$( document ).ready(function() {
+  var angle = 0;
+  $('#refresh-button').on('click', function(event) {
+    angle += 360;
+    $(this).rotate({ animateTo: angle});
+    refresh_favorites();
+  });
+});
+</script>

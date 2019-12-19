@@ -1,0 +1,37 @@
+$("#<%= @view_id %>").html('<%= escape_javascript(render(partial: "departure_list")) %>');
+$(".favorite-button").on("click", function(event){
+  if (localStorage) {
+    var favorites = JSON.parse(localStorage.getItem('favorites'));
+    if(favorites==null) {
+      favorites = {};
+    }
+    if(favorites[$(this).data("stop")] == null) {
+      favorites[$(this).data("stop")] = [];
+    }
+    var index = $.inArray($(this).data("route"), favorites[$(this).data("stop")])
+    if(index == -1) {
+      favorites[$(this).data("stop")].push($(this).data("route"));
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+      $(this).attr("src", "/assets/favorite-selected.png");
+    } else {
+      favorites[$(this).data("stop")].splice(index, 1);
+      if (favorites[$(this).data("stop")].length == 0) {
+        delete favorites[$(this).data("stop")];
+      }
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+      $(this).attr("src", "/assets/favorite.png");
+    }
+  } else{
+    console.log("No localStorage");
+  };
+});
+
+if (localStorage) {
+  var favorites = JSON.parse(localStorage.getItem('favorites'));
+  $(".favorite-button").each(function() {
+    var routes = favorites[$(this).data("stop")];
+    if (routes != null && $.inArray($(this).data("route"), routes) != -1) {
+      $(this).attr("src", "/assets/favorite-selected.png");
+    };
+  });
+}

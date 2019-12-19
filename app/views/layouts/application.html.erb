@@ -1,0 +1,80 @@
+<!--
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Smartroute</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+  </html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>SmartRoute</title>
+  <meta name="description" content="Avoid standing at a station waiting for the bus, use SmartRoute and reach to teh station on time.">
+  <meta name="author" content="Pradyumna Dandwate">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+
+  <%= javascript_pack_tag "application" %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+
+<div class="section header">
+  <div class="container">
+    <div class="row">
+      <div class="one-half column logo">
+        <a href="/"><img class="u-max-full-width logo-sr" src="/assets/smartroute.png"></a>
+      </div>
+      <div class="one-half column">
+        <a class="button button-primary button-fav" href="/favorites">Favorites</a>
+        <a class="button button-primary" href="/agencies">Departures</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <%= yield %>
+
+<div class="section header">
+  <div class="container">
+    <div class="row center">
+      Copyright &copy; Pradyumna Dandwate
+      <br>
+      <span style="font-size: 10px; color: #888;">Disclaimer: Images displayed on this site are copyrighted by concerning agencies, I do not own it. Those images are used here for learning purpose, please do not sue me :)</span>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="http://jqueryrotate.googlecode.com/svn/trunk/jQueryRotate.js"></script>
+</body>
+</html>
